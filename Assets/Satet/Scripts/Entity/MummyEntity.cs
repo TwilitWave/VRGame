@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+public enum MummyStatus
+{
+    WalkingHidden,
+    Emerging,
+}
+public class MummyEntity : MonoBehaviour {
+
+    // Use this for initialization
+    public int id;
+    public MummyWalkingPath walkingPath;
+    float collapsedTime;
+    int currentPos = 0;
+    public MummyStatus status = MummyStatus.WalkingHidden;
+
+    private void Awake()
+    {
+        GetComponent<Renderer>().enabled = false;
+    }
+
+    void Start () {
+		
+	}
+
+    public void SetUp(int _id, MummyWalkingPath _walkingPath)
+    {
+        id = _id;
+        walkingPath = _walkingPath;
+
+        
+    }
+
+    public bool setEmergingPoint()
+    {
+        if (currentPos != -1)
+        {
+            Debug.Log(MummyManager.Instance);
+            EmergingPoint currentEmergingPoint = MummyManager.Instance.emergingPoints[walkingPath.walkingSeq[currentPos]];
+            transform.position = currentEmergingPoint.reference.position + currentEmergingPoint.position;
+            transform.rotation = Quaternion.Euler(currentEmergingPoint.eulerAngles);
+            return true;
+        }
+        return false;
+    }
+    void MoveToNextPoint()
+    {
+        currentPos++;
+        if (currentPos >= walkingPath.walkingSeq.Count)
+            currentPos = -1;
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        collapsedTime += Time.deltaTime;
+        Debug.Log(id);
+        Debug.Log(currentPos + " !!!! " + walkingPath.walkingSeq.Count);
+        if (currentPos == -1)
+        {
+            Destroy(gameObject);
+            MummyManager.Instance.DestoryMummy(id);
+        }
+        else
+        {
+            switch (status)
+            {
+                case MummyStatus.Emerging:
+                    if (collapsedTime > walkingPath.lastingTime[currentPos])
+                    {
+                        // disappear
+                        GetComponent<Renderer>().enabled = false;
+                        // move to next position
+                        MoveToNextPoint();
+                        collapsedTime = 0;
+                        status = MummyStatus.WalkingHidden;
+                    }
+                    
+                    break;
+                case MummyStatus.WalkingHidden:
+                    if (collapsedTime > walkingPath.waitingTime[currentPos])
+                    {
+                        // appear
+                        setEmergingPoint();
+                        GetComponent<Renderer>().enabled = true;
+                        collapsedTime = 0;
+                        status = MummyStatus.Emerging;
+                    }
+                    break;
+            }
+
+        }
+    }
+    
+}
