@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
@@ -48,6 +47,11 @@ namespace SSR.Player
                 otherHandObjectToAttach.SetActive(true);
                 this.setupHand.otherHand.AttachObject(otherHandObjectToAttach, GrabTypes.Scripted, attachmentFlags);
             }
+        }
+
+
+        private void Update()
+        {
         }
     }
 }
