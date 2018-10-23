@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 public enum MummyStatus
 {
     WalkingHidden,
     Emerging,
 }
-public class MummyEntity : MonoBehaviour {
+public class MummyEntity : MonoBehaviour
+{
 
     // Use this for initialization
     public int id;
@@ -16,22 +13,24 @@ public class MummyEntity : MonoBehaviour {
     float collapsedTime;
     int currentPos = 0;
     public MummyStatus status = MummyStatus.WalkingHidden;
+    public Renderer render;
 
     private void Awake()
     {
-        GetComponent<Renderer>().enabled = false;
+        this.render.enabled = false;
     }
 
-    void Start () {
-		
-	}
+    void Start()
+    {
+
+    }
 
     public void SetUp(int _id, MummyWalkingPath _walkingPath)
     {
         id = _id;
         walkingPath = _walkingPath;
 
-        
+
     }
 
     public bool setEmergingPoint()
@@ -71,20 +70,20 @@ public class MummyEntity : MonoBehaviour {
                     if (collapsedTime > walkingPath.lastingTime[currentPos])
                     {
                         // disappear
-                        GetComponent<Renderer>().enabled = false;
+                        this.render.enabled = false;
                         // move to next position
                         MoveToNextPoint();
                         collapsedTime = 0;
                         status = MummyStatus.WalkingHidden;
                     }
-                    
+
                     break;
                 case MummyStatus.WalkingHidden:
                     if (collapsedTime > walkingPath.waitingTime[currentPos])
                     {
                         // appear
                         setEmergingPoint();
-                        GetComponent<Renderer>().enabled = true;
+                        this.render.enabled = true;
                         collapsedTime = 0;
                         status = MummyStatus.Emerging;
                     }
@@ -93,5 +92,5 @@ public class MummyEntity : MonoBehaviour {
 
         }
     }
-    
+
 }

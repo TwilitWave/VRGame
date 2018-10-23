@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 489048}
   - component: {fileID: 11469686}
+  - component: {fileID: 114240736238457044}
   m_Layer: 0
   m_Name: TestMummy
   m_TagString: Untagged
@@ -9877,3 +9878,22 @@ MonoBehaviour:
   ignitionDelay: 1
   ignitionSound: {fileID: 0}
   canSpreadFromThisSource: 1
+--- !u!114 &114240736238457044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae97284eade46a40a178199528520de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  walkingPath:
+    size: 0
+    walkingSeq: 
+    lastingTime: []
+    waitingTime: []
+  status: 0
+  render: {fileID: 2307050}

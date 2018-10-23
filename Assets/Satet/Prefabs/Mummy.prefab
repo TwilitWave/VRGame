@@ -103,6 +103,7 @@ MonoBehaviour:
     lastingTime: []
     waitingTime: []
   status: 0
+  render: {fileID: 23565021815615108}
 --- !u!135 &135415891649346032
 SphereCollider:
   m_ObjectHideFlags: 1
