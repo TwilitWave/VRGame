@@ -6,7 +6,6 @@ public enum MummyStatus
 }
 public class MummyEntity : MonoBehaviour
 {
-
     // Use this for initialization
     public int id;
     public MummyWalkingPath walkingPath;
@@ -92,6 +91,11 @@ public class MummyEntity : MonoBehaviour
             }
 
         }
+    }
+
+    public void Destroy()
+    {
+        GameObject.Destroy(this.gameObject);
     }
 
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using SSR.Player;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
