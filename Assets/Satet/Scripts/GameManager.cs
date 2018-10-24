@@ -47,10 +47,6 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if (mummyManager == null)
-        {
-            Instantiate(mummyManager);
-        }
     }
 
     // Update is called once per frame

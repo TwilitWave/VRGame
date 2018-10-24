@@ -55,10 +55,11 @@ public class MummyEntity : MonoBehaviour
     void Update()
     {
         collapsedTime += Time.deltaTime;
-        Debug.Log(id);
-        Debug.Log(currentPos + " !!!! " + walkingPath.walkingSeq.Count);
+        //Debug.Log(id);
+        //Debug.Log(currentPos + " !!!! " + walkingPath.walkingSeq.Count);
         if (currentPos == -1)
         {
+            PlayerEntity.Instance.UnderAttack();
             Destroy(gameObject);
             MummyManager.Instance.DestoryMummy(id);
         }
