@@ -14,7 +14,7 @@ public class MummyEntity : MonoBehaviour
     int currentPos = 0;
     public MummyStatus status = MummyStatus.WalkingHidden;
     public Renderer render;
-    public int score = 150;
+    public int reward = 150;
 
     private void Awake()
     {
@@ -109,7 +109,8 @@ public class MummyEntity : MonoBehaviour
 
     public void AddScore()
     {
-        PlayerEntity.Instance.score += this.score;
+        PlayerEntity.Instance.score += this.reward;
+        Debug.Log("The player's score is " + PlayerEntity.Instance.score);
     }
 
     public void Destroy()
