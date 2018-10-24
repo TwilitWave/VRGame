@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MummyManager : MonoBehaviour {
+public class MummyManager : MonoBehaviour
+{
     public Dictionary<int, GameObject> Mummys;
     public List<EmergingPoint> emergingPoints;
     public List<MummyWalkingPath> walkingPaths;
@@ -33,24 +34,36 @@ public class MummyManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         Mummys = new Dictionary<int, GameObject>();
-
+        //just for test
+        this.SpawnMummy();
     }
 
-    
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            id++;
-            Mummys.Add(id, Instantiate(mummyPrefab, new Vector3(0, 0, 0), transform.rotation));
-            Mummys[id].GetComponent<MummyEntity>().SetUp(id, walkingPaths[id % walkingPaths.Count]);
+            this.SpawnMummy();
         }
-        
     }
     public void DestoryMummy(int id)
     {
         Mummys.Remove(id);
+    }
+
+    public void SpawnMummy()
+    {
+        id++;
+        Mummys.Add(id, Instantiate(mummyPrefab, new Vector3(0, 0, 0), transform.rotation));
+        Mummys[id].GetComponent<MummyEntity>().SetUp(id, walkingPaths[id % walkingPaths.Count]);
+    }
+
+    private void OnSpawnMummy()
+    {
+        this.SpawnMummy();
+        Debug.Log("Receive the spawn mummy");
     }
 }

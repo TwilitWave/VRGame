@@ -1,54 +1,61 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerEntity : MonoBehaviour {
-    public int health = 1;
-    private static PlayerEntity _instance = null;
-    
-    public static PlayerEntity Instance
+namespace SSR.Player
+{
+    public class PlayerEntity : MonoBehaviour
     {
-        get
+        public int health = 1;
+        private static PlayerEntity _instance = null;
+
+        public int score { get; set; }
+
+        public static PlayerEntity Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new PlayerEntity();
+                }
+                return _instance;
+            }
+        }
+        public void Awake()
         {
             if (_instance == null)
+                _instance = this;
+            else if (_instance != this)
             {
-                _instance = new PlayerEntity();
+                Destroy(gameObject);
             }
-            return _instance;
+
+            DontDestroyOnLoad(gameObject);
         }
-    }
-    public void Awake()
-    {
-        if (_instance == null)
-            _instance = this;
-        else if (_instance != this)
+        // Use this for initialization
+        void Start()
         {
-            Destroy(gameObject);
+            this.score = 0;
         }
 
-        DontDestroyOnLoad(gameObject);
-    }
-    // Use this for initialization
-    void Start () {
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void UnderAttack()
-    {
-       
-        health--;
-        Debug.Log(health);
-        if (health == 0)
+        // Update is called once per frame
+        void Update()
         {
-            Debug.Log("@@@");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        }
+
+        public void UnderAttack()
+        {
+
+            health--;
+            Debug.Log(health);
+            if (health == 0)
+            {
+                Debug.Log("@@@");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
 }
+
 

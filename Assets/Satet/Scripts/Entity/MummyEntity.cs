@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SSR.Player;
+using UnityEngine;
 public enum MummyStatus
 {
     WalkingHidden,
@@ -13,6 +14,7 @@ public class MummyEntity : MonoBehaviour
     int currentPos = 0;
     public MummyStatus status = MummyStatus.WalkingHidden;
     public Renderer render;
+    public int score = 150;
 
     private void Awake()
     {
@@ -93,9 +95,21 @@ public class MummyEntity : MonoBehaviour
                 }
 
             }
-        } else {
+        }
+        else
+        {
             this.render.enabled = true;
         }
+    }
+
+    public void SendSpawnMessage()
+    {
+        MummyManager.Instance.SpawnMummy();
+    }
+
+    public void AddScore()
+    {
+        PlayerEntity.Instance.score += this.score;
     }
 
     public void Destroy()
