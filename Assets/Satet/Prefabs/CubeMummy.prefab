@@ -24,8 +24,10 @@ GameObject:
   - component: {fileID: 54950057659124450}
   - component: {fileID: 114395359687218422}
   - component: {fileID: 65340919607498694}
+  - component: {fileID: 114321836515113694}
+  - component: {fileID: 114998137091733430}
   m_Layer: 0
-  m_Name: SolidCube
+  m_Name: CubeMummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +61,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 9d1e45f7e8ad0eb45b0550d3f8b3cd31, type: 3}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,6 +115,63 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.766567, y: 3.766567, z: 3.766566}
   m_Center: {x: -0.00000047683716, y: 1.9341224, z: 0}
+--- !u!114 &114321836515113694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146598726459430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f2850d002f14a47bff32fdf73df53e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114240736238457044, guid: e4b676fa1f5a69c478bbad3c49f9ab95,
+          type: 2}
+        m_MethodName: SendSpawnMessage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: OnSpawnMummy
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114240736238457044, guid: e4b676fa1f5a69c478bbad3c49f9ab95,
+          type: 2}
+        m_MethodName: AddScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114113555777500418, guid: e4b676fa1f5a69c478bbad3c49f9ab95,
+          type: 2}
+        m_MethodName: Destrory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onceOnly: 0
+  targetCenter: {fileID: 0}
+  baseTransform: {fileID: 0}
+  fallenDownTransform: {fileID: 0}
+  fallTime: 0.5
 --- !u!114 &114395359687218422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,4 +186,25 @@ MonoBehaviour:
   destroyedVersion: {fileID: 1160078306844338, guid: 19f21dc9dad076841953c22e062942f2,
     type: 2}
   Force: 500
-  Radius: 5
+  Radius: 100
+--- !u!114 &114998137091733430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146598726459430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae97284eade46a40a178199528520de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  walkingPath:
+    size: 0
+    achievedFinalPoint: 0
+    walkingSeq: 
+    lastingTime: []
+    waitingTime: []
+  status: 0
+  render: {fileID: 23391105191650478}
+  reward: 150

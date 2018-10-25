@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 489048}
   - component: {fileID: 11469686}
   - component: {fileID: 114240736238457044}
+  - component: {fileID: 114113555777500418}
   m_Layer: 0
   m_Name: TestMummy
   m_TagString: Untagged
@@ -698,8 +699,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114240736238457044}
-        m_MethodName: Destroy
+      - m_Target: {fileID: 114113555777500418}
+        m_MethodName: Destrory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9900,6 +9901,21 @@ MonoBehaviour:
   ignitionDelay: 1
   ignitionSound: {fileID: 0}
   canSpreadFromThisSource: 1
+--- !u!114 &114113555777500418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13395852ebf31743a651259f9076492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyedVersion: {fileID: 1160078306844338, guid: 19f21dc9dad076841953c22e062942f2,
+    type: 2}
+  Force: 500
+  Radius: 100
 --- !u!114 &114240736238457044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9914,6 +9930,7 @@ MonoBehaviour:
   id: 0
   walkingPath:
     size: 0
+    achievedFinalPoint: 0
     walkingSeq: 
     lastingTime: []
     waitingTime: []
