@@ -69,6 +69,7 @@ public class MummyEntity : MonoBehaviour
                     PlayerEntity.Instance.UnderAttack(walkingPath.achievedFinalPoint);
                     Destroy();
                     MummyManager.Instance.DestoryMummy(id);
+                    MummyManager.Instance.SpawnMummy();
                 }
             }
             else
