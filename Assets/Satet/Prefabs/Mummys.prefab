@@ -371,6 +371,7 @@ MonoBehaviour:
     reference: {fileID: 4171583111025002}
   walkingPaths:
   - size: 0
+    achievedFinalPoint: 0
     walkingSeq: 000000000100000002000000
     lastingTime:
     - 5
@@ -381,6 +382,7 @@ MonoBehaviour:
     - 0.5
     - 0.5
   - size: 3
+    achievedFinalPoint: 1
     walkingSeq: 030000000400000005000000
     lastingTime:
     - 5
@@ -391,6 +393,7 @@ MonoBehaviour:
     - 0.5
     - 0.5
   - size: 3
+    achievedFinalPoint: 2
     walkingSeq: 060000000700000008000000
     lastingTime:
     - 5

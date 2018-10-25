@@ -7,8 +7,10 @@ using System.Text;
 public class MummyWalkingPath
 {
     public int size;
+    public int achievedFinalPoint;
     public List<int> walkingSeq;
     public List<float> lastingTime;
     public List<float> waitingTime;
 }
+
 

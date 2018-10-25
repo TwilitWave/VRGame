@@ -15,6 +15,7 @@ public class MummyEntity : MonoBehaviour
     public MummyStatus status = MummyStatus.WalkingHidden;
     public Renderer render;
     public int reward = 150;
+    private bool isDestory = false;
 
     private void Awake()
     {
@@ -62,9 +63,13 @@ public class MummyEntity : MonoBehaviour
         {
             if (currentPos == -1)
             {
-                PlayerEntity.Instance.UnderAttack();
-                Destroy(gameObject);
-                MummyManager.Instance.DestoryMummy(id);
+                if (!isDestory)
+                { 
+                    isDestory = true;
+                    PlayerEntity.Instance.UnderAttack(walkingPath.achievedFinalPoint);
+                    Destroy();
+                    MummyManager.Instance.DestoryMummy(id);
+                }
             }
             else
             {
