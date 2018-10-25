@@ -1,20 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Destructible : MonoBehaviour {
-
+public class Destructible : MonoBehaviour
+{
     public GameObject destroyedVersion;
     public float Force;
     public float Radius;
-    
-   
 
-    void OnTriggerEnter(Collider other)
+    public void Destrory()
     {
         Instantiate(destroyedVersion, transform.position, transform.rotation);
-        GetComponent<Rigidbody>().AddExplosionForce(Force, transform.position, Radius);
-        Destroy(gameObject);
-        
+        GetComponentInChildren<Rigidbody>().AddExplosionForce(Force, transform.position, Radius);
+        Destroy(this.gameObject);
     }
 }

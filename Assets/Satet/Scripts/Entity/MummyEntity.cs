@@ -67,7 +67,7 @@ public class MummyEntity : MonoBehaviour
                 { 
                     isDestory = true;
                     PlayerEntity.Instance.UnderAttack(walkingPath.achievedFinalPoint);
-                    Destroy();
+                    this.GetComponent<Destructible>().Destrory();
                     MummyManager.Instance.DestoryMummy(id);
                     MummyManager.Instance.SpawnMummy();
                 }
@@ -118,10 +118,4 @@ public class MummyEntity : MonoBehaviour
         PlayerEntity.Instance.score += this.reward;
         Debug.Log("The player's score is " + PlayerEntity.Instance.score);
     }
-
-    public void Destroy()
-    {
-        GameObject.Destroy(this.gameObject);
-    }
-
 }
