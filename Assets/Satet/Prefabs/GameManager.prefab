@@ -52,5 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  mummyManager: {fileID: 114249214216511204, guid: 60c65c70fc01446488ea3329f6968510,
-    type: 2}
+  mummyManager: {fileID: 0}

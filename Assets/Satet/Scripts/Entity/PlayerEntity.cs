@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using System.Collections.Generic;
 
 namespace SSR.Player
 {
+    [Serializable]
+    public class HealthWall
+    {
+        public int health;
+        public List<GameObject> walls;
+    }
+
     public class PlayerEntity : MonoBehaviour
     {
-        public int health = 1;
+        public List<HealthWall> healthWall;
         private static PlayerEntity _instance = null;
 
         public int score { get; set; }
@@ -30,7 +39,7 @@ namespace SSR.Player
                 Destroy(gameObject);
             }
 
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         // Use this for initialization
         void Start()
@@ -44,15 +53,21 @@ namespace SSR.Player
 
         }
 
-        public void UnderAttack()
+        public void UnderAttack(int achievedPoint)
         {
-
-            health--;
-            Debug.Log(health);
-            if (health == 0)
+            if (achievedPoint >= 0 && achievedPoint < healthWall.Count)
             {
-                Debug.Log("@@@");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                healthWall[achievedPoint].health--;
+                Debug.Log(healthWall[achievedPoint].health);
+                if (healthWall[achievedPoint].health < 0)
+                {
+                    Debug.Log("@@@");
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
+                else
+                {
+                    Destroy(healthWall[achievedPoint].walls[healthWall[achievedPoint].health]);
+                }
             }
         }
     }
