@@ -19,6 +19,7 @@ namespace SSR.Player
         private static PlayerEntity _instance = null;
         public GameObject scoreText;
         public int _score;
+        public GameObject FailedPanel;
         public int score {
             get
             {
@@ -61,7 +62,11 @@ namespace SSR.Player
         // Update is called once per frame
         void Update()
         {
-
+            Debug.Log("@@@" + enabled);
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                EndGame();
+            }
         }
 
         public void UnderAttack(int achievedPoint)
@@ -69,17 +74,29 @@ namespace SSR.Player
             if (achievedPoint >= 0 && achievedPoint < healthWall.Count)
             {
                 healthWall[achievedPoint].health--;
-                Debug.Log(healthWall[achievedPoint].health);
                 if (healthWall[achievedPoint].health < 0)
                 {
-                    Debug.Log("@@@");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    EndGame();
                 }
                 else
                 {
                     Destroy(healthWall[achievedPoint].walls[healthWall[achievedPoint].health]);
                 }
             }
+        }
+        public void EndGame()
+        {
+            MummyManager.Instance.enabled = false;
+            foreach (var item in MummyManager.Instance.Mummys)
+                item.Value.GetComponent<MummyEntity>().enabled = false;
+            enabled = false;
+            FailedPanel.SetActive(true);
+        }
+
+        public void ReloadGame()
+        {
+            Debug.Log("In Reload Scene");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
