@@ -42,7 +42,6 @@ public class MummyEntity : MonoBehaviour
     {
         if (currentPos != -1)
         {
-            Debug.Log(MummyManager.Instance);
             EmergingPoint currentEmergingPoint = MummyManager.Instance.emergingPoints[walkingPath.walkingSeq[currentPos]];
             transform.position = currentEmergingPoint.reference.position + currentEmergingPoint.position;
             transform.rotation = Quaternion.Euler(currentEmergingPoint.eulerAngles);
@@ -59,6 +58,10 @@ public class MummyEntity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            AddScore();
+        }
         if (countDown)
         {
             collapsedTime += Time.deltaTime;
@@ -148,5 +151,18 @@ public class MummyEntity : MonoBehaviour
     {
         PlayerEntity.Instance.score += this.reward;
         Debug.Log("The player's score is " + PlayerEntity.Instance.score);
+        PopupScore(this.reward);
+    }
+
+    public void ElimateScorePopupText()
+    {
+        gameObject.GetComponentInChildren<TextMesh>().GetComponent<Animator>().SetBool("IsPopup", false);
+    }
+
+    public void PopupScore(int score)
+    {
+        Invoke("ElimateScorePopupText", 2);
+        gameObject.GetComponentInChildren<TextMesh>().text = "" + this.reward;
+        gameObject.GetComponentInChildren<TextMesh>().GetComponent<Animator>().SetBool("IsPopup", true);
     }
 }

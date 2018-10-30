@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 namespace SSR.Player
@@ -16,8 +17,18 @@ namespace SSR.Player
     {
         public List<HealthWall> healthWall;
         private static PlayerEntity _instance = null;
-
-        public int score { get; set; }
+        public GameObject scoreText;
+        public int _score;
+        public int score {
+            get
+            {
+                return this._score;
+            }
+            set { 
+                scoreText.GetComponent<Text>().text = "Score: " + value;
+                this._score = value;
+            }
+        }
 
         public static PlayerEntity Instance
         {
