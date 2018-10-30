@@ -18,7 +18,6 @@ namespace SSR.Mummy
         int currentPos = 0;
         public MummyStatus status = MummyStatus.WalkingHidden;
         public Renderer render;
-        public int reward = 150;
         private bool isDestory = false;
         private bool countDown = true;
         Animator animator;
@@ -171,9 +170,10 @@ namespace SSR.Mummy
 
         public void AddScore()
         {
-            PlayerEntity.Instance.score += this.reward;
-            var floatingText = Instantiate<FloatingTextControl>(this.floatingTextPrefab, this.transform.position, Quaternion.identity, null);
-            floatingText.Popup(this.reward);
+            var basePoint = MummyManager.Instance.emergingPoints[this.walkingPath.walkingSeq[currentPos]].point;
+            PlayerEntity.Instance.score += basePoint;
+            var floatingText = Instantiate<FloatingTextControl>(this.floatingTextPrefab, this.popupPosition.position, Quaternion.identity, null);
+            floatingText.Popup(basePoint);
         }
     }
 }

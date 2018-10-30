@@ -8,5 +8,6 @@ public class EmergingPoint
     public Vector3 position;
     public Vector3 eulerAngles;
     public Transform reference;
+    public int point = 100;
 }
 
