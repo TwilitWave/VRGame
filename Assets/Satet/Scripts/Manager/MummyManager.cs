@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using SSR.Mummy;
 
 public class MummyManager : MonoBehaviour
 {

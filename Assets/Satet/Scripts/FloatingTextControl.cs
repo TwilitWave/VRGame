@@ -1,23 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SSR.Mummy
 {
-    public class FloatingText : MonoBehaviour
+    public class FloatingTextControl : MonoBehaviour
     {
+        private Animator _animator;
 
-        // Use this for initialization
-        void Start()
+        private TextMesh _textMesh;
+
+        private void Awake()
         {
+            _animator = this.GetComponent<Animator>();
+            _textMesh = this.GetComponent<TextMesh>();
 
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Popup(int score)
         {
-
+            Debug.Log("The position is " + this.transform.position);
+            _textMesh.text = score.ToString();
+            _animator.SetBool("IsPopup", true);
         }
-    }
+
+        public void OnPopupFinished()
+        {
+            Debug.Log("The floating test finish popup.");
+            Destroy(this.gameObject);
+        }
+    } 
 }
 
