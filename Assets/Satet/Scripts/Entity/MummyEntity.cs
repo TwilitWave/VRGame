@@ -170,10 +170,30 @@ namespace SSR.Mummy
 
         public void AddScore()
         {
-            var basePoint = MummyManager.Instance.emergingPoints[this.walkingPath.walkingSeq[currentPos]].point;
-            PlayerEntity.Instance.score += basePoint;
+            PlayerEntity.Instance.targetTimes++;
+            var point = MummyManager.Instance.emergingPoints[this.walkingPath.walkingSeq[currentPos]].point + this.CalculateComboPoint();
+            if (point > PlayerEntity.Instance.maxiumPoint)
+            {
+                point = PlayerEntity.Instance.maxiumPoint;
+            }
+            PlayerEntity.Instance.score += point;
             var floatingText = Instantiate<FloatingTextControl>(this.floatingTextPrefab, this.popupPosition.position, Quaternion.identity, null);
-            floatingText.Popup(basePoint);
+            floatingText.Popup(point);
+        }
+
+        private int CalculateComboPoint()
+        {
+            if (PlayerEntity.Instance.targetTimes == PlayerEntity.Instance.shootTimes)
+            {
+                PlayerEntity.Instance.comboPoint += 25;
+            }
+            else
+            {
+                PlayerEntity.Instance.comboPoint = 0;
+                PlayerEntity.Instance.targetTimes = 0;
+                PlayerEntity.Instance.shootTimes = 0;
+            }
+            return PlayerEntity.Instance.comboPoint;
         }
     }
 }

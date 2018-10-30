@@ -19,12 +19,22 @@ namespace SSR.Player
         private static PlayerEntity _instance = null;
         public GameObject scoreText;
         public int _score;
-        public int score {
+
+        public int shootTimes { get; internal set; }
+        public int targetTimes { get; internal set; }
+
+        public int comboPoint { get; internal set; }
+
+        public int maxiumPoint = 500;
+
+        public int score
+        {
             get
             {
                 return this._score;
             }
-            set { 
+            set
+            {
                 scoreText.GetComponent<Text>().text = "Score: " + value;
                 this._score = value;
             }
@@ -56,6 +66,9 @@ namespace SSR.Player
         void Start()
         {
             this.score = 0;
+            this.shootTimes = 0;
+            this.targetTimes = 0;
+            this.comboPoint = 0;
         }
 
         // Update is called once per frame

@@ -10,6 +10,8 @@ using System.Collections.Generic;
 
 namespace Valve.VR.InteractionSystem
 {
+    public delegate void OnArrowRelease();
+
 	//-------------------------------------------------------------------------
 	[RequireComponent( typeof( Interactable ) )]
 	public class Longbow : MonoBehaviour
@@ -75,6 +77,8 @@ namespace Valve.VR.InteractionSystem
 		public SoundPlayOneshot arrowSlideSound;
 		public SoundPlayOneshot releaseSound;
 		public SoundPlayOneshot nockSound;
+
+        public event OnArrowRelease onArrowRelease;
 
 		SteamVR_Events.Action newPosesAppliedAction;
 
@@ -198,6 +202,11 @@ namespace Valve.VR.InteractionSystem
 			{
 				releaseSound.Play();
 			}
+
+            if (this.onArrowRelease != null)
+            {
+                this.onArrowRelease();
+            }
 
 			this.StartCoroutine( this.ResetDrawAnim() );
 		}

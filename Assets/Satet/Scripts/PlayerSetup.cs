@@ -11,6 +11,9 @@ namespace SSR.Player
         public GameObject itemPrefab;
 
         public GameObject otherHandItemPrefab;
+
+        public Longbow currentBow { get; private set; }
+
         [EnumFlags]
         public Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags;
         private void Awake()
@@ -34,6 +37,15 @@ namespace SSR.Player
             this.StartCoroutine(this.SetupNextFrame());
         }
 
+
+        private void OnDisable()
+        {
+            if (this.currentBow != null)
+            {
+                this.currentBow.onArrowRelease -= this.HandleOnArrowRelease;
+            }
+        }
+
         private IEnumerator SetupNextFrame()
         {
             yield return null;
@@ -47,11 +59,23 @@ namespace SSR.Player
                 otherHandObjectToAttach.SetActive(true);
                 this.setupHand.otherHand.AttachObject(otherHandObjectToAttach, GrabTypes.Scripted, attachmentFlags);
             }
+
+            this.currentBow = spawnedItem.GetComponent<Longbow>();
+            if (this.currentBow == null)
+            {
+                throw new System.Exception("Cannot get the current bow, please check that");
+            }
+            this.currentBow.onArrowRelease += this.HandleOnArrowRelease;
         }
 
 
         private void Update()
         {
+        }
+
+        private void HandleOnArrowRelease()
+        {
+            PlayerEntity.Instance.shootTimes++;
         }
     }
 }
