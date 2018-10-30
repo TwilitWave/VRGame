@@ -8,6 +8,7 @@ public enum MummyStatus
 public class MummyEntity : MonoBehaviour
 {
     // Use this for initialization
+    
     public int id;
     public MummyWalkingPath walkingPath = null;
     float collapsedTime;
@@ -16,10 +17,13 @@ public class MummyEntity : MonoBehaviour
     public Renderer render;
     public int reward = 150;
     private bool isDestory = false;
+    private bool countDown = true;
+    Animator animator;
 
     private void Awake()
     {
         this.render.enabled = false;
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -31,8 +35,7 @@ public class MummyEntity : MonoBehaviour
     {
         id = _id;
         walkingPath = _walkingPath;
-
-
+        
     }
 
     public bool setEmergingPoint()
@@ -56,46 +59,74 @@ public class MummyEntity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        collapsedTime += Time.deltaTime;
-        //Debug.Log(id);
-        //Debug.Log(currentPos + " !!!! " + walkingPath.walkingSeq.Count);
+        if (countDown)
+        {
+            collapsedTime += Time.deltaTime;
+        }
+        else collapsedTime = 0;
         if (walkingPath.walkingSeq.Count != 0)
         {
             if (currentPos == -1)
             {
                 if (!isDestory)
-                { 
+                {
                     isDestory = true;
                     PlayerEntity.Instance.UnderAttack(walkingPath.achievedFinalPoint);
                     this.GetComponent<Destructible>().Destrory();
                     MummyManager.Instance.DestoryMummy(id);
                     MummyManager.Instance.SpawnMummy();
                 }
+
             }
             else
             {
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("MummyAppear"))
+                    this.render.enabled = true;
+                if (!countDown && status == MummyStatus.WalkingHidden && animator.GetCurrentAnimatorStateInfo(0).IsName("MummyIdleUnderground"))
+                {
+                    this.render.enabled = false;
+                    Debug.Log("Change because of underground");
+                    countDown = true;
+                    MoveToNextPoint();
+                }
+                if (!countDown && status == MummyStatus.Emerging && animator.GetCurrentAnimatorStateInfo(0).IsName("MummyIdle"))
+                {
+                    Debug.Log("Change because of Idle");
+                    countDown = true;
+                }
+
                 switch (status)
                 {
                     case MummyStatus.Emerging:
                         if (collapsedTime > walkingPath.lastingTime[currentPos])
                         {
-                            // disappear
-                            this.render.enabled = false;
-                            // move to next position
-                            MoveToNextPoint();
-                            collapsedTime = 0;
                             status = MummyStatus.WalkingHidden;
+                            countDown = false;
+                            Debug.Log("Disappear!" + walkingPath.lastingTime[currentPos]);
+                            // disappear
+                            animator.SetBool("isAppearing", false);
+                            animator.SetBool("isDisappearing", true);
+                            // move to next position
+                            collapsedTime = 0;
+                            
                         }
 
                         break;
                     case MummyStatus.WalkingHidden:
                         if (collapsedTime > walkingPath.waitingTime[currentPos])
                         {
+                            status = MummyStatus.Emerging;
+                            countDown = false;
+                            Debug.Log("Appear!" + walkingPath.waitingTime[currentPos]);
                             // appear
                             setEmergingPoint();
-                            this.render.enabled = true;
+                            
+                            animator.SetBool("isDisappearing", false);
+                            animator.SetBool("isAppearing", true);
+                            
                             collapsedTime = 0;
-                            status = MummyStatus.Emerging;
+                            
+
                         }
                         break;
                 }
