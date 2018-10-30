@@ -14,10 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/SteamVR/InteractionSystem/Samples/Interactions_Example.unity
     guid: e3b77830391f10343929883b18f4d5ae
-  - enabled: 0
-    path: Assets/Scenes/gaze.unity
-    guid: efc5abc6eb82f404b9b4cac3b659425c
   - enabled: 1
-    path: Assets/Scenes/PlutoScene.unity
-    guid: 1cd0c8f1fe912b7418c63c3982f690ce
+    path: Assets/Satet/Scenes/Santet's Shooting Range.unity
+    guid: 46dfe803f76ec4c48940674c01d1b9fb
   m_configObjects: {}
