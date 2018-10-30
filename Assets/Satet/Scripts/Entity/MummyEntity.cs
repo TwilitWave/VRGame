@@ -85,14 +85,17 @@ public class MummyEntity : MonoBehaviour
             {
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("MummyAppear"))
                     this.render.enabled = true;
-                if (!countDown && status == MummyStatus.WalkingHidden && animator.GetCurrentAnimatorStateInfo(0).IsName("MummyIdleUnderground"))
+                if (!countDown && status == MummyStatus.WalkingHidden && 
+                    animator.GetCurrentAnimatorStateInfo(0).IsName("MummyIdleUnderground"))
                 {
                     this.render.enabled = false;
                     Debug.Log("Change because of underground");
                     countDown = true;
+                    MummyManager.Instance.leaveEmergingPoint(walkingPath.walkingSeq[currentPos]);
                     MoveToNextPoint();
                 }
-                if (!countDown && status == MummyStatus.Emerging && animator.GetCurrentAnimatorStateInfo(0).IsName("MummyIdle"))
+                if (!countDown && status == MummyStatus.Emerging && 
+                    animator.GetCurrentAnimatorStateInfo(0).IsName("MummyIdle"))
                 {
                     Debug.Log("Change because of Idle");
                     countDown = true;
@@ -116,7 +119,8 @@ public class MummyEntity : MonoBehaviour
 
                         break;
                     case MummyStatus.WalkingHidden:
-                        if (collapsedTime > walkingPath.waitingTime[currentPos])
+                        if (collapsedTime > walkingPath.waitingTime[currentPos] && 
+                            MummyManager.Instance.enterToEmergingPoint(walkingPath.walkingSeq[currentPos], id))
                         {
                             status = MummyStatus.Emerging;
                             countDown = false;

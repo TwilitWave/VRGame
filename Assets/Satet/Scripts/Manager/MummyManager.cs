@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MummyManager : MonoBehaviour
 {
@@ -8,8 +9,11 @@ public class MummyManager : MonoBehaviour
     public List<EmergingPoint> emergingPoints;
     public List<MummyWalkingPath> walkingPaths;
     public GameObject mummyPrefab;
+    public List<int> emergingPointsStatus;
+    public int availableSpot = 0;
     int id = 0;
     private static MummyManager _instance = null;
+    System.Random random = new System.Random();
 
     public static MummyManager Instance
     {
@@ -22,6 +26,7 @@ public class MummyManager : MonoBehaviour
             return _instance;
         }
     }
+
     public void Awake()
     {
         if (_instance == null)
@@ -37,8 +42,14 @@ public class MummyManager : MonoBehaviour
     void Start()
     {
         Mummys = new Dictionary<int, GameObject>();
-        //just for test
+        emergingPointsStatus = new List<int>();
+        availableSpot = emergingPoints.Count;
+        for (int i = 0; i < emergingPoints.Count; i++)
+        {
+            emergingPointsStatus.Insert(0, 0);
+        }
         this.SpawnMummy();
+
     }
 
     // Update is called once per frame
@@ -48,22 +59,53 @@ public class MummyManager : MonoBehaviour
         {
             this.SpawnMummy();
         }
+        if (random.Next(0, 1000) % 300 == 3)
+        {
+            this.SpawnMummy();
+        }
     }
     public void DestoryMummy(int id)
     {
         Mummys.Remove(id);
     }
-
     public void SpawnMummy()
     {
-        id++;
-        Mummys.Add(id, Instantiate(mummyPrefab, new Vector3(0, 0, 0), transform.rotation));
-        Mummys[id].GetComponent<MummyEntity>().SetUp(id, walkingPaths[id % walkingPaths.Count]);
+        SpawnMummy(random.Next(0, 100));
+    }
+
+    public void SpawnMummy(int pathId)
+    {
+        var path = walkingPaths[pathId % walkingPaths.Count];
+        if (path.walkingSeq.Count > 0 && enterToEmergingPoint(path.walkingSeq[0], id + 1)) {
+            id++;
+            Mummys.Add(id, Instantiate(mummyPrefab, new Vector3(0, 0, 0), transform.rotation));
+            Mummys[id].GetComponent<MummyEntity>().SetUp(id, path);
+        }
     }
 
     private void OnSpawnMummy()
     {
         this.SpawnMummy();
         Debug.Log("Receive the spawn mummy");
+    }
+
+    
+
+    public bool enterToEmergingPoint(int id, int value)
+    {
+        if (emergingPointsStatus[id] == value) return true;
+        if (emergingPointsStatus[id] == 0)
+        {
+            emergingPointsStatus[id] = value;
+
+            availableSpot--;
+            return true;
+        }
+        return false;
+    }
+    public void leaveEmergingPoint(int id)
+    {
+        emergingPointsStatus[id] = 0;
+        availableSpot++;
     }
 }
