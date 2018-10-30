@@ -59,7 +59,7 @@ public class MummyManager : MonoBehaviour
         {
             this.SpawnMummy();
         }
-        if (random.Next(0, 1000) % 300 == 3)
+        if (random.Next(0, 1000) % 1000 == 3)
         {
             this.SpawnMummy();
         }
