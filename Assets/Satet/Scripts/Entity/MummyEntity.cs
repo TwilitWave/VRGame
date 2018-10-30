@@ -8,7 +8,7 @@ public enum MummyStatus
 public class MummyEntity : MonoBehaviour
 {
     // Use this for initialization
-    
+
     public int id;
     public MummyWalkingPath walkingPath = null;
     float collapsedTime;
@@ -35,7 +35,7 @@ public class MummyEntity : MonoBehaviour
     {
         id = _id;
         walkingPath = _walkingPath;
-        
+
     }
 
     public bool setEmergingPoint()
@@ -113,14 +113,14 @@ public class MummyEntity : MonoBehaviour
                             animator.SetBool("isDisappearing", true);
                             // move to next position
                             collapsedTime = 0;
-                            
+
                         }
 
                         break;
                     case MummyStatus.WalkingHidden:
                         if (currentPos == -1)
                             Debug.Log(currentPos);
-                        if (collapsedTime > walkingPath.waitingTime[currentPos] && 
+                        if (collapsedTime > walkingPath.waitingTime[currentPos] &&
                             MummyManager.Instance.enterToEmergingPoint(walkingPath.walkingSeq[currentPos], id))
                         {
                             status = MummyStatus.Emerging;
@@ -128,12 +128,12 @@ public class MummyEntity : MonoBehaviour
                             Debug.Log("Appear!" + walkingPath.waitingTime[currentPos]);
                             // appear
                             setEmergingPoint();
-                            
+
                             animator.SetBool("isDisappearing", false);
                             animator.SetBool("isAppearing", true);
-                            
+
                             collapsedTime = 0;
-                            
+
 
                         }
                         break;
@@ -168,6 +168,5 @@ public class MummyEntity : MonoBehaviour
     {
         Invoke("ElimateScorePopupText", 2);
         gameObject.GetComponentInChildren<TextMesh>().text = "" + this.reward;
-        gameObject.GetComponentInChildren<TextMesh>().GetComponent<Animator>().SetBool("IsPopup", true);
     }
 }
