@@ -17,14 +17,12 @@ namespace SSR.Mummy
 
         public void Popup(int score)
         {
-            Debug.Log("The position is " + this.transform.position);
             _textMesh.text = score.ToString();
             _animator.SetBool("IsPopup", true);
         }
 
         public void OnPopupFinished()
         {
-            Debug.Log("The floating test finish popup.");
             Destroy(this.gameObject);
         }
     } 
