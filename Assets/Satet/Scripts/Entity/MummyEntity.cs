@@ -94,6 +94,7 @@ namespace SSR.Mummy
             if (Input.GetKeyDown(KeyCode.K))
             {
                 AddScore();
+                this.GetComponent<Destructible>().Destrory();
             }
             if (countDown)
             {
