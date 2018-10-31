@@ -103,7 +103,7 @@ namespace SSR.Player
         {
             MummyManager.Instance.enabled = false;
             foreach (var item in MummyManager.Instance.Mummys)
-                if (item.Value.activeInHierarchy)
+                if (item.Value != null)
                     item.Value.GetComponent<MummyEntity>().enabled = false;
             enabled = false;
             FailedPanel.SetActive(true);
