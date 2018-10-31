@@ -106,6 +106,7 @@ namespace SSR.Player
                 if (item.Value != null)
                     item.Value.GetComponent<MummyEntity>().enabled = false;
             enabled = false;
+            FailedPanel.transform.Find("Score").GetComponent<TMPro.TextMeshPro>().text = "Score: " + score;
             FailedPanel.SetActive(true);
         }
 
