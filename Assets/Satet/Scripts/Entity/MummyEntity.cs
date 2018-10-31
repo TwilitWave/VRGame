@@ -181,6 +181,12 @@ namespace SSR.Mummy
             floatingText.Popup(point);
         }
 
+        public void OnReadyDestory()
+        {
+            if (currentPos >= 0) 
+                MummyManager.Instance.leaveEmergingPoint(this.walkingPath.walkingSeq[currentPos]);
+        }
+
         private int CalculateComboPoint()
         {
             if (PlayerEntity.Instance.targetTimes == PlayerEntity.Instance.shootTimes)
