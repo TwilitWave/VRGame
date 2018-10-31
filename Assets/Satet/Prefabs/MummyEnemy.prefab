@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 114113555777500418}
   - component: {fileID: 95446432111385534}
   m_Layer: 0
-  m_Name: TestMummy
+  m_Name: MummyEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c13395852ebf31743a651259f9076492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedVersion: {fileID: 1160078306844338, guid: 19f21dc9dad076841953c22e062942f2,
+  destroyedVersion: {fileID: 1947904292268188, guid: 6208a97288699e14082d6e79898280cf,
     type: 2}
   Force: 500
   Radius: 100
