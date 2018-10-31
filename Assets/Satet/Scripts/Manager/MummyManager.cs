@@ -60,7 +60,8 @@ public class MummyManager : MonoBehaviour
         {
             this.SpawnMummy();
         }
-        if (random.Next(0, 1000) % 1000 == 3)
+        
+        if (random.Next(0, 1000) % 300 == 3)
         {
             this.SpawnMummy();
         }
@@ -76,9 +77,11 @@ public class MummyManager : MonoBehaviour
 
     public void SpawnMummy(int pathId)
     {
+       // Debug.Log("Walking path:" + walkingPaths.Count);
         var path = walkingPaths[pathId % walkingPaths.Count];
-        if (path.walkingSeq.Count > 0 && enterToEmergingPoint(path.walkingSeq[0], id + 1)) {
+        if (path.walkingSeq.Count > 0 && enterToEmergingPoint(path.walkingSeq[0], id + 1) && enabled) {            
             id++;
+            Debug.Log("Add new mummy! id:" + id);
             Mummys.Add(id, Instantiate(mummyPrefab, new Vector3(0, 0, 0), transform.rotation));
             Mummys[id].GetComponent<MummyEntity>().SetUp(id, path);
         }

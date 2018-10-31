@@ -71,12 +71,13 @@ namespace SSR.Player
             this.shootTimes = 0;
             this.targetTimes = 0;
             this.comboPoint = 0;
+            MummyManager.Instance.enabled = true;
+            enabled = true;
         }
 
         // Update is called once per frame
         void Update()
         {
-            Debug.Log("@@@" + enabled);
             if (Input.GetKeyDown(KeyCode.P))
             {
                 EndGame();
