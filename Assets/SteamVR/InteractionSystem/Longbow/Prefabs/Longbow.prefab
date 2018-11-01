@@ -862,7 +862,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0.038, z: -0.053}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 489376}
@@ -1115,15 +1115,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173346}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.14780942, y: 0, z: 0, w: 0.9890159}
+  m_LocalPosition: {x: 9.538164, y: 1.0981002, z: -2.0836349}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433756}
   - {fileID: 485124}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 17, y: 0, z: 0}
 --- !u!82 &8221970
 AudioSource:
   m_ObjectHideFlags: 1
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   arrowHandPrefab: {fileID: 187848, guid: d410d7126dd411c4ea651fc94eae9202, type: 2}
   nocked: 0
   pulled: 0
-  arrowMinVelocity: 1
+  arrowMinVelocity: 25
   arrowMaxVelocity: 100
   drawOffset: 0.09
   bowDrawLinearMapping: {fileID: 11461100}
@@ -1973,15 +1973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveFiles:
-  - {fileID: 8300000, guid: 5dea26c1298d78149af149b8bd73ff63, type: 3}
-  - {fileID: 8300000, guid: f9d368eac27f70740bed52d36e0070d8, type: 3}
-  - {fileID: 8300000, guid: c4212c0047b94924e8982fea80fb6547, type: 3}
-  - {fileID: 8300000, guid: 220813dc74ddc714fa8b1db1e6416e27, type: 3}
-  - {fileID: 8300000, guid: 0e4ff6f209abadf45b1c2403b1382cdf, type: 3}
-  - {fileID: 8300000, guid: 0e1c54b10ce72f640a29eecbfced2363, type: 3}
-  - {fileID: 8300000, guid: c2b473f54caf2504ba276643282bc0ab, type: 3}
-  - {fileID: 8300000, guid: 0858be1afe7ac384698e357be00d670f, type: 3}
-  - {fileID: 8300000, guid: 14d8c2eed68260f4d82a70201f2f19eb, type: 3}
+  - {fileID: 8300000, guid: e635d52950bb9e147b59d89b4cbf297a, type: 3}
   volMin: 1
   volMax: 1
   pitchMin: 0.98
@@ -1998,23 +1990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c1c9a5bbab2e54280027c0ecaf42db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveFiles:
-  - {fileID: 8300000, guid: 51747ad9fd4c5564e873dbae5171e257, type: 3}
-  - {fileID: 8300000, guid: bb1994a9358f0dc4782fe7535a9b384c, type: 3}
-  - {fileID: 8300000, guid: 1958d9dc4683f204793b607c688da2d7, type: 3}
-  - {fileID: 8300000, guid: 1b7c76f85bf1034498fefaa3ec8e600f, type: 3}
-  - {fileID: 8300000, guid: d27732ffed6c52840bb268571f66913e, type: 3}
-  - {fileID: 8300000, guid: cb68230ab01aab448b476ae3c84ee521, type: 3}
-  - {fileID: 8300000, guid: b508660da1369664ea4fe1f9987c2150, type: 3}
-  - {fileID: 8300000, guid: c424271f5a0b34042978648f19f2da8b, type: 3}
-  - {fileID: 8300000, guid: a8aded2ee3b41f04eaad3a7b9f35e37f, type: 3}
-  - {fileID: 8300000, guid: aa14911b4b4eb894085dfe426f46ba98, type: 3}
-  - {fileID: 8300000, guid: 23932eb1f1528d34786ffa3381cb5922, type: 3}
-  - {fileID: 8300000, guid: 7f632b7ba3e0d004899c46e9d8261c81, type: 3}
-  - {fileID: 8300000, guid: 48e7e7e907cb4de4e89ebb5f2ecb5674, type: 3}
-  - {fileID: 8300000, guid: 5930d7d2e705ea74ca30ee6652eb4571, type: 3}
-  - {fileID: 8300000, guid: 7b9d6636c126a33489ada91fd402f036, type: 3}
-  - {fileID: 8300000, guid: 4d23d5e2668be9f4b893c46b3802077f, type: 3}
+  waveFiles: []
   volMin: 0.1
   volMax: 0.25
   pitchMin: 0.98
@@ -2031,7 +2007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc121f192dd724945a1998a9c1f1727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bowClick: {fileID: 8300000, guid: 8a95f5613a17c0f4db5b93318e947568, type: 3}
+  bowClick: {fileID: 8300000, guid: 3de7f2fca8cb16d4694f5048c1ca0e0d, type: 3}
   pitchTensionCurve:
     serializedVersion: 2
     m_Curve:
@@ -2092,24 +2068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c1c9a5bbab2e54280027c0ecaf42db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveFiles:
-  - {fileID: 8300000, guid: 554ae4ff7aa47c0478d95d78e6a9be6b, type: 3}
-  - {fileID: 8300000, guid: dde0cb3ddafcf014a8c42e805de893e8, type: 3}
-  - {fileID: 8300000, guid: 36f326ccef0fe5546befe26be5ba337f, type: 3}
-  - {fileID: 8300000, guid: d5aa741aac337e14398adda80505bf9c, type: 3}
-  - {fileID: 8300000, guid: 1dfef04d7ab9ced4093c828025f5bf06, type: 3}
-  - {fileID: 8300000, guid: dd90b53139ec2fb4697f0cf3dceac679, type: 3}
-  - {fileID: 8300000, guid: 0d18ca862d5d9b743b42348751798528, type: 3}
-  - {fileID: 8300000, guid: 6ad90a1b9664a154592fabedc7cef551, type: 3}
-  - {fileID: 8300000, guid: 8f094810949516a41a720a40a87d29cc, type: 3}
-  - {fileID: 8300000, guid: 37b6eb5cae1aaba4086f32bccf0cb47f, type: 3}
-  - {fileID: 8300000, guid: 4fee3982c922af44babfca8a11dffaca, type: 3}
-  - {fileID: 8300000, guid: dfd9b0fa043e3fc43821c159432a045c, type: 3}
-  - {fileID: 8300000, guid: 6a2a42a4396b3ec4fbe844a811b77445, type: 3}
-  - {fileID: 8300000, guid: ab9d0c5c3fa27b34685e9b70737e281a, type: 3}
-  - {fileID: 8300000, guid: f6870f0d62f5a624aabbd4e3e7bff65f, type: 3}
-  - {fileID: 8300000, guid: 3bad6fb5cb07dd44b88e0e1857e222be, type: 3}
-  - {fileID: 8300000, guid: ece81cacdab36d745962207a515820a1, type: 3}
+  waveFiles: []
   volMin: 0.1
   volMax: 0.4
   pitchMin: 0.98
@@ -2130,7 +2089,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 921837a5408991d429e86efc66f8be6b, type: 2}
+  - {fileID: 2100000, guid: 00346d6b9c771e64e92ae069a3ce5198, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2154,7 +2113,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300004, guid: e694f124da5bfd84d97e67e8c2719420, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 0fe22f9b9190e324190725da25fddd80, type: 3}
   m_Bones:
   - {fileID: 458172}
   - {fileID: 433956}
@@ -2173,7 +2132,7 @@ SkinnedMeshRenderer:
   - {fileID: 443452}
   - {fileID: 454596}
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 458172}
+  m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0.00247306, y: -0.03695005, z: -0.06531754}
     m_Extent: {x: 0.023163367, y: 0.65521353, z: 0.14267805}
