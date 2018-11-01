@@ -1116,7 +1116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173346}
   m_LocalRotation: {x: 0.14780942, y: 0, z: 0, w: 0.9890159}
-  m_LocalPosition: {x: -4.058936, y: 1.9714795, z: 5.6583943}
+  m_LocalPosition: {x: 9.538164, y: 1.0981002, z: -2.0836349}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433756}
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   arrowHandPrefab: {fileID: 187848, guid: d410d7126dd411c4ea651fc94eae9202, type: 2}
   nocked: 0
   pulled: 0
-  arrowMinVelocity: 1
+  arrowMinVelocity: 25
   arrowMaxVelocity: 100
   drawOffset: 0.09
   bowDrawLinearMapping: {fileID: 11461100}
@@ -2089,7 +2089,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 921837a5408991d429e86efc66f8be6b, type: 2}
+  - {fileID: 2100000, guid: 00346d6b9c771e64e92ae069a3ce5198, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

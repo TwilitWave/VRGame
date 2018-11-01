@@ -1463,7 +1463,7 @@ Transform:
   m_GameObject: {fileID: 1587831606139728}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.32, y: 2.085, z: 1.065}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.4692, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4661050320630150}
   m_RootOrder: 1
@@ -1475,8 +1475,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1760503777049984}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.96, y: 2.097, z: 1.033}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.56, y: 2.097, z: 1.033}
+  m_LocalScale: {x: 5.759171, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4661050320630150}
   m_RootOrder: 2
@@ -1504,8 +1504,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1619672292448334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.648, y: 2.081, z: 1.03}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.93, y: 2.081, z: 1.03}
+  m_LocalScale: {x: 4.589, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4661050320630150}
   m_RootOrder: 0
@@ -1525,7 +1525,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1bc2ba18818b7184b930f72d60168ed1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1560,7 +1560,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1bc2ba18818b7184b930f72d60168ed1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1595,7 +1595,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1bc2ba18818b7184b930f72d60168ed1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1621,21 +1621,21 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1587831606139728}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 64e4399f2e511b845b60711a97bea14f, type: 3}
 --- !u!33 &33689974088189646
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1760503777049984}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 64e4399f2e511b845b60711a97bea14f, type: 3}
 --- !u!33 &33730996403257826
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1619672292448334}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 64e4399f2e511b845b60711a97bea14f, type: 3}
 --- !u!65 &65193851831844998
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1870,7 +1870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.98525333, g: 0.033018887, b: 1, a: 1}
+  m_Color: {r: 0.6161793, g: 0.9245283, b: 0.5974546, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1878,7 +1878,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
+    m_Font: {fileID: 12800000, guid: 5dd49b3eacc540408c98eee0de38e0f1, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -1914,6 +1914,8 @@ MonoBehaviour:
     - {fileID: 1760503777049984}
   scoreText: {fileID: 1970388649949998}
   _score: 0
+  FailedPanel: {fileID: 0}
+  maxiumPoint: 500
 --- !u!222 &222128091376743006
 CanvasRenderer:
   m_ObjectHideFlags: 1
